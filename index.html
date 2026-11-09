@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f5b">
+  <title>Healthy Life — Santé & bien-être</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#dashboard"><span class="brand-mark">✚</span><span>HEALTHY<span class="brand-light"> LIFE</span></span></a>
+    <div class="profile-mini"><div class="avatar">HL</div><div><strong id="sideName">Mon espace</strong><small data-i18n="personal_space">Espace personnel</small></div></div>
+    <nav class="nav">
+      <a class="nav-link active" href="#dashboard" data-page="dashboard"><span>▦</span><span data-i18n="dashboard">Tableau de bord</span></a>
+      <a class="nav-link" href="#hydration" data-page="hydration"><span>💧</span><span data-i18n="hydration">Hydratation</span></a>
+      <a class="nav-link" href="#activity" data-page="activity"><span>🏃</span><span data-i18n="activity">Activité physique</span></a>
+      <a class="nav-link" href="#nutrition" data-page="nutrition"><span>🥗</span><span data-i18n="nutrition">Nutrition</span></a>
+      <a class="nav-link" href="#sleep" data-page="sleep"><span>🌙</span><span data-i18n="sleep">Sommeil</span></a>
+      <a class="nav-link" href="#wellbeing" data-page="wellbeing"><span>🧘</span><span data-i18n="wellbeing">Bien-être</span></a>
+      <a class="nav-link" href="#calendar" data-page="calendar"><span>▦</span><span data-i18n="calendar">Mon calendrier</span></a>
+      <a class="nav-link" href="#statistics" data-page="statistics"><span>▥</span><span data-i18n="statistics">Statistiques</span></a>
+      <a class="nav-link" href="#profile" data-page="profile"><span>👤</span><span data-i18n="profile">Mon profil</span></a>
+      <a class="nav-link" href="#assistant" data-page="assistant"><span>✨</span><span data-i18n="assistant">Assistant bien-être</span></a>
+      <a class="nav-link" href="#reminders" data-page="reminders"><span>⏰</span><span data-i18n="reminders">Rappels</span></a>
+      <a class="nav-link" href="#professional" data-page="professional"><span>🩺</span><span data-i18n="professional_space">Espace professionnel</span></a>
+      <a class="nav-link" href="#about" data-page="about"><span>ℹ️</span><span data-i18n="about">À propos</span></a>
+    </nav>
+    <div class="sidebar-bottom"><span class="status-dot"></span><span data-i18n="local_data">Données enregistrées sur cet appareil</span></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Menu">☰</button>
+      <div><div class="eyebrow" data-i18n="daily_wellness">VOTRE SANTÉ, VOTRE RYTHME</div><h1 id="pageTitle" data-i18n="dashboard">Tableau de bord</h1></div>
+      <div class="top-actions">
+        <label class="language-label" for="languageSelect">文</label>
+        <select id="languageSelect" aria-label="Language">
+          <option value="fr">Français</option><option value="en">English</option><option value="de">Deutsch</option>
+          <option value="ja">日本語</option><option value="zh">中文</option><option value="ko">한국어</option><option value="ar">العربية</option>
+        </select>
+        <button class="icon-btn" id="themeBtn" title="Dark mode">☾</button>
+        <button class="btn secondary account-open" id="accountBtn" data-i18n="account">Compte</button>
+      </div>
+    </header>
+
+    <section class="page active" id="page-dashboard">
+      <div class="welcome-card">
+        <div><span class="pill" data-i18n="healthy_habits">DE BONNES HABITUDES, CHAQUE JOUR</span><h2><span data-i18n="hello">Bonjour</span>, <span id="welcomeName">vous</span> 👋</h2>
+        <p data-i18n="welcome_text">Un petit pas aujourd’hui peut faire une grande différence demain.</p></div>
+        <div class="welcome-art">🌿</div>
+      </div>
+      <div class="section-heading"><div><h2 data-i18n="overview">Vue d’ensemble</h2><p data-i18n="today_progress">Votre suivi pour aujourd’hui</p></div><span class="date-chip" id="todayDate"></span></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-icon water">💧</div><span data-i18n="water_today">Eau aujourd’hui</span><strong id="dashWater">0 <small data-i18n="glasses">verres</small></strong><div class="progress"><i id="waterProgress"></i></div><small id="waterGoalText">Objectif : 8 verres</small></article>
+        <article class="stat-card"><div class="stat-icon move">🏃</div><span data-i18n="activity_today">Activité aujourd’hui</span><strong id="dashActivity">0 <small>min</small></strong><small data-i18n="move_more">Chaque mouvement compte.</small></article>
+        <article class="stat-card"><div class="stat-icon sleep">🌙</div><span data-i18n="last_sleep">Dernier sommeil</span><strong id="dashSleep">— <small>h</small></strong><small data-i18n="sleep_tip">Visez une routine régulière.</small></article>
+        <article class="stat-card"><div class="stat-icon mood">😊</div><span data-i18n="mood_today">Humeur du jour</span><strong id="dashMood">—</strong><small data-i18n="mood_note">Prenez un instant pour vous.</small></article>
+      </div>
+      <div class="content-grid">
+        <article class="panel"><div class="panel-head"><div><h3 data-i18n="quick_actions">Actions rapides</h3><p data-i18n="small_steps">Enregistrez vos habitudes</p></div></div>
+          <div class="quick-grid">
+            <button class="quick-action" data-go="hydration"><span>💧</span><b data-i18n="add_water">Ajouter de l’eau</b><small data-i18n="quick_water">Suivre vos verres</small></button>
+            <button class="quick-action" data-go="activity"><span>🏃</span><b data-i18n="log_activity">Enregistrer un sport</b><small data-i18n="quick_activity">Bouger aujourd’hui</small></button>
+            <button class="quick-action" data-go="sleep"><span>🌙</span><b data-i18n="log_sleep">Noter mon sommeil</b><small data-i18n="quick_sleep">Suivre votre repos</small></button>
+            <button class="quick-action" data-go="wellbeing"><span>🧘</span><b data-i18n="check_mood">Faire le point</b><small data-i18n="quick_mood">Votre humeur du jour</small></button>
+          </div>
+        </article>
+        <article class="panel tip-panel"><div class="panel-head"><div><h3 data-i18n="tip_day">Conseil du jour</h3><p data-i18n="wellness_inspiration">Une inspiration bien-être</p></div><span>✦</span></div><div class="tip-emoji">🌱</div><p id="dailyTip"></p><button class="text-btn" id="newTip" data-i18n="another_tip">Un autre conseil ↗</button></article>
+      </div>
+      <div class="disclaimer" data-i18n="disclaimer">Healthy Life est un outil de suivi et d’information générale. Il ne remplace pas l’avis d’un professionnel de santé ni un diagnostic médical.</div>
+    </section>
+
+    <section class="page" id="page-hydration">
+      <div class="section-heading"><div><h2 data-i18n="hydration_title">Mon hydratation</h2><p data-i18n="hydration_desc">Suivez votre consommation d’eau au fil de la journée.</p></div></div>
+      <div class="two-col"><article class="panel centered"><div class="big-icon">💧</div><div class="big-number" id="waterCount">0</div><p data-i18n="glasses_today">verres aujourd’hui</p><div class="progress wide"><i id="waterPageProgress"></i></div><p id="waterPageGoal">0 / 8 verres</p><div class="button-row"><button class="btn primary" id="addWater">＋ <span data-i18n="add_glass">Ajouter un verre</span></button><button class="btn secondary" id="removeWater">− <span data-i18n="undo">Annuler</span></button></div></article>
+      <article class="panel"><h3 data-i18n="water_goal">Objectif quotidien</h3><p class="muted" data-i18n="goal_note">Vous pouvez adapter cet objectif à vos besoins.</p><label data-i18n="glasses_goal">Nombre de verres</label><input id="waterGoal" type="number" min="1" max="30" value="8"><button class="btn primary" id="saveWaterGoal" data-i18n="save_goal">Enregistrer l’objectif</button><p class="hint" data-i18n="water_note">Les besoins varient selon la personne, l’activité et la météo. Écoutez votre soif et les conseils d’un professionnel si nécessaire.</p></article></div>
+    </section>
+
+    <section class="page" id="page-activity">
+      <div class="section-heading"><div><h2 data-i18n="activity_title">Mon activité physique</h2><p data-i18n="activity_desc">Étudiants, sportifs ou actifs : chaque mouvement compte.</p></div></div>
+      <div class="two-col"><article class="panel"><h3 data-i18n="add_session">Ajouter une séance</h3><form id="activityForm" class="form-grid"><label data-i18n="activity_type">Type d’activité<select id="activityType"><option>Marche</option><option>Course</option><option>Musculation</option><option>Football</option><option>Vélo</option><option>Natation</option><option>Yoga</option><option>Autre</option></select></label><label data-i18n="duration">Durée (minutes)<input id="activityDuration" type="number" min="1" max="1440" required placeholder="30"></label><label data-i18n="activity_date">Date<input id="activityDate" type="date" required></label><button class="btn primary full" type="submit" data-i18n="save_session">Enregistrer la séance</button></form></article>
+      <article class="panel"><h3 data-i18n="activity_summary">Résumé du jour</h3><div class="big-number" id="activityTotal">0 <small>min</small></div><p class="muted" data-i18n="minutes_recorded">minutes enregistrées aujourd’hui</p><div id="activityList" class="record-list"></div></article></div>
+    </section>
+
+    <section class="page" id="page-nutrition">
+      <div class="section-heading"><div><h2 data-i18n="nutrition_title">Nutrition équilibrée</h2><p data-i18n="nutrition_desc">Des repères simples pour composer vos repas.</p></div></div>
+      <div class="nutrition-grid">
+        <article class="panel nutrition-card"><div class="food-icon">🥦</div><h3 data-i18n="vegetables">Fruits et légumes</h3><p data-i18n="vegetables_text">Variez les couleurs et privilégiez les produits de saison.</p></article>
+        <article class="panel nutrition-card"><div class="food-icon">🌾</div><h3 data-i18n="whole_grains">Céréales et féculents</h3><p data-i18n="grains_text">Choisissez des sources variées d’énergie selon vos besoins.</p></article>
+        <article class="panel nutrition-card"><div class="food-icon">🥚</div><h3 data-i18n="protein">Protéines</h3><p data-i18n="protein_text">Alternez légumineuses, œufs, poisson, viande ou autres sources.</p></article>
+        <article class="panel nutrition-card"><div class="food-icon">🥑</div><h3 data-i18n="good_fats">Matières grasses</h3><p data-i18n="fats_text">Privilégiez les sources insaturées, en quantités adaptées.</p></article>
+      </div>
+      <article class="panel meal-panel"><h3 data-i18n="meal_ideas">Idées de repas à noter</h3><form id="mealForm" class="inline-form"><input id="mealInput" required data-i18n-placeholder="meal_placeholder" placeholder="Ex. : riz, poisson et légumes"><button class="btn primary" data-i18n="add">Ajouter</button></form><div id="mealList" class="record-list"></div><p class="hint" data-i18n="nutrition_note">Ces informations sont générales. Les besoins nutritionnels sont individuels, notamment en cas de maladie, grossesse ou entraînement intensif.</p></article>
+    </section>
+
+    <section class="page" id="page-sleep">
+      <div class="section-heading"><div><h2 data-i18n="sleep_title">Mon sommeil</h2><p data-i18n="sleep_desc">Repérez vos habitudes de repos.</p></div></div>
+      <article class="panel sleep-panel"><div class="big-icon">🌙</div><h3 data-i18n="sleep_entry">Enregistrer une durée de sommeil</h3><form id="sleepForm" class="inline-form"><label data-i18n="hours_slept">Heures dormies<input type="number" id="sleepHours" min="0" max="24" step=".5" placeholder="7.5" required></label><label data-i18n="sleep_date">Date<input type="date" id="sleepDate" required></label><button class="btn primary" data-i18n="save">Enregistrer</button></form><div id="sleepList" class="record-list"></div><p class="hint" data-i18n="sleep_note">La durée de sommeil recommandée dépend notamment de l’âge et de la situation de chacun.</p></article>
+    </section>
+
+    <section class="page" id="page-wellbeing">
+      <div class="section-heading"><div><h2 data-i18n="wellbeing_title">Mon bien-être</h2><p data-i18n="wellbeing_desc">Prenez quelques secondes pour faire le point.</p></div></div>
+      <div class="two-col"><article class="panel"><h3 data-i18n="mood_check">Comment vous sentez-vous ?</h3><div class="mood-options"><button data-mood="😄" aria-label="Très bien">😄</button><button data-mood="🙂" aria-label="Bien">🙂</button><button data-mood="😐" aria-label="Moyen">😐</button><button data-mood="😟" aria-label="Difficile">😟</button><button data-mood="😣" aria-label="Très difficile">😣</button></div><p id="moodFeedback" class="muted" data-i18n="choose_mood">Choisissez l’emoji qui correspond à votre humeur.</p></article>
+      <article class="panel"><h3 data-i18n="breathing">Pause respiration</h3><p class="muted" data-i18n="breathing_text">Installez-vous confortablement. Inspirez doucement, puis expirez sans forcer.</p><div class="breath-circle" id="breathCircle">Breathe</div><button class="btn primary" id="breathBtn" data-i18n="start_breathing">Démarrer 1 minute</button></article></div>
+    </section>
+
+    <section class="page" id="page-calendar">
+      <div class="section-heading"><div><h2 data-i18n="calendar_title">Mon calendrier</h2><p data-i18n="calendar_desc">Retrouvez vos entrées récentes.</p></div></div>
+      <article class="panel"><div class="calendar-head"><button class="icon-btn" id="prevMonth">‹</button><h3 id="monthLabel"></h3><button class="icon-btn" id="nextMonth">›</button></div><div class="calendar-grid" id="calendarGrid"></div><p class="hint" data-i18n="calendar_hint">Les jours avec un point contiennent au moins une activité enregistrée.</p></article>
+    </section>
+
+    <section class="page" id="page-statistics">
+      <div class="section-heading"><div><h2 data-i18n="statistics_title">Mes statistiques</h2><p data-i18n="statistics_desc">Un aperçu de vos habitudes enregistrées.</p></div></div>
+      <div class="stats-grid"><article class="stat-card"><span data-i18n="total_water">Verres d’eau enregistrés</span><strong id="totalWater">0</strong></article><article class="stat-card"><span data-i18n="total_activity">Minutes d’activité</span><strong id="totalActivity">0</strong></article><article class="stat-card"><span data-i18n="sleep_entries">Nuits enregistrées</span><strong id="totalSleep">0</strong></article><article class="stat-card"><span data-i18n="meal_entries">Repas notés</span><strong id="totalMeals">0</strong></article></div>
+      <article class="panel"><h3 data-i18n="weekly_activity">Activité des 7 derniers jours</h3><div class="bar-chart" id="weeklyChart"></div></article>
+      <article class="panel"><h3 data-i18n="health_trends">Tendances personnelles</h3><p class="muted" data-i18n="trends_note">Comparaison de vos données enregistrées sur les 7 derniers jours.</p><div class="trend-grid"><div><span data-i18n="water_average">Moyenne d’eau / jour</span><strong id="waterAverage">0</strong></div><div><span data-i18n="activity_average">Activité moyenne / jour</span><strong id="activityAverage">0 min</strong></div><div><span data-i18n="sleep_average">Sommeil moyen / nuit</span><strong id="sleepAverage">—</strong></div></div></article>
+    </section>
+
+    <section class="page" id="page-profile">
+      <div class="section-heading"><div><h2 data-i18n="profile_title">Mon profil</h2><p data-i18n="profile_desc">Adaptez votre espace à vos objectifs.</p></div></div>
+      <article class="panel profile-panel"><form id="profileForm" class="form-grid"><label data-i18n="your_name">Votre prénom<input id="profileName" maxlength="40" placeholder="Prénom"></label><label data-i18n="your_audience">Votre profil<select id="audience"><option value="student" data-i18n="student">Étudiant</option><option value="general" data-i18n="general_public">Grand public</option><option value="athlete" data-i18n="athlete">Sportif</option><option value="professional" data-i18n="professional">Professionnel</option></select></label><label data-i18n="main_goal">Objectif principal<select id="mainGoal"><option data-i18n="goal_energy">Plus d’énergie au quotidien</option><option data-i18n="goal_activity">Bouger régulièrement</option><option data-i18n="goal_sleep">Améliorer mon sommeil</option><option data-i18n="goal_balance">Équilibre général</option></select></label><button class="btn primary full" data-i18n="save_profile">Enregistrer mon profil</button></form><hr><button class="btn danger" id="resetData" data-i18n="reset_data">Effacer toutes mes données locales</button><p class="hint" data-i18n="privacy_note">Vos données de démonstration restent dans le stockage local de ce navigateur. Elles ne sont pas synchronisées entre appareils.</p></article>
+    </section>
+
+    <section class="page" id="page-assistant">
+      <div class="section-heading"><div><h2 data-i18n="assistant_title">Assistant bien-être</h2><p data-i18n="assistant_desc">Des pistes générales adaptées à vos habitudes déclarées.</p></div></div>
+      <article class="panel assistant-panel">
+        <div class="assistant-banner"><span>✨</span><div><h3 data-i18n="assistant_welcome">Comment puis-je vous aider aujourd’hui ?</h3><p data-i18n="assistant_disclaimer">Assistant informatif, pas un professionnel de santé.</p></div></div>
+        <div class="assistant-prompts">
+          <button class="quick-action" data-prompt="study" data-i18n="prompt_study">🎓 Je suis stressé par mes études</button>
+          <button class="quick-action" data-prompt="sport" data-i18n="prompt_sport">🏃 Je veux mieux récupérer après le sport</button>
+          <button class="quick-action" data-prompt="sleep" data-i18n="prompt_sleep">🌙 Je veux améliorer mon sommeil</button>
+          <button class="quick-action" data-prompt="nutrition" data-i18n="prompt_nutrition">🥗 Je cherche des idées d’équilibre alimentaire</button>
+        </div>
+        <div id="assistantAnswer" class="assistant-answer" data-i18n="assistant_placeholder">Choisissez un sujet pour recevoir des conseils généraux.</div>
+        <form id="assistantForm" class="inline-form"><input id="assistantQuestion" data-i18n-placeholder="assistant_input" placeholder="Écrivez votre question…" maxlength="300"><button class="btn primary" data-i18n="send">Envoyer</button></form>
+        <p class="hint" data-i18n="assistant_limit">Cette version utilise des réponses locales prédéfinies. Elle ne réalise pas de diagnostic et ne remplace pas une consultation.</p>
+      </article>
+    </section>
+
+    <section class="page" id="page-reminders">
+      <div class="section-heading"><div><h2 data-i18n="reminders_title">Rappels et habitudes</h2><p data-i18n="reminders_desc">Configurez des rappels affichés lorsque l’application est ouverte.</p></div></div>
+      <div class="two-col">
+        <article class="panel"><h3 data-i18n="create_reminder">Créer un rappel</h3>
+          <form id="reminderForm" class="form-grid">
+            <label data-i18n="reminder_type">Type<select id="reminderType"><option value="water" data-i18n="reminder_water">Boire de l’eau</option><option value="move" data-i18n="reminder_move">Faire une pause active</option><option value="rest" data-i18n="reminder_rest">Pause / repos</option></select></label>
+            <label data-i18n="reminder_time">Heure<input id="reminderTime" type="time" value="10:00" required></label>
+            <label data-i18n="reminder_days">Répétition<select id="reminderDays"><option value="daily" data-i18n="every_day">Tous les jours</option><option value="weekdays" data-i18n="weekdays">Jours de semaine</option></select></label>
+            <button class="btn primary full" type="submit" data-i18n="save_reminder">Enregistrer le rappel</button>
+          </form>
+          <button class="btn secondary" id="notificationPermission" data-i18n="enable_notifications">Autoriser les notifications</button>
+          <p class="hint" data-i18n="reminder_limit">Les rappels fonctionnent dans cette page ouverte. Les notifications en arrière-plan nécessitent une PWA/service worker et une configuration HTTPS.</p>
+        </article>
+        <article class="panel"><h3 data-i18n="my_reminders">Mes rappels</h3><div id="reminderList" class="record-list"></div></article>
+      </div>
+    </section>
+
+    <section class="page" id="page-professional">
+      <div class="section-heading"><div><h2 data-i18n="professional_title">Espace professionnel</h2><p data-i18n="professional_desc">Un aperçu de démonstration pour coachs et accompagnants.</p></div></div>
+      <div class="disclaimer" data-i18n="professional_privacy">Les données personnelles ne doivent être consultées ou partagées qu’avec le consentement explicite de la personne. Cette démo n’est pas un dossier médical.</div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-icon move">👥</div><span data-i18n="demo_members">Profils de démonstration</span><strong>01</strong><small data-i18n="demo_only">Données locales uniquement</small></article>
+        <article class="stat-card"><div class="stat-icon water">📈</div><span data-i18n="tracked_entries">Entrées suivies</span><strong id="professionalEntries">0</strong><small data-i18n="personal_records">Enregistrements de cet appareil</small></article>
+        <article class="stat-card"><div class="stat-icon sleep">🔒</div><span data-i18n="privacy_status">Confidentialité</span><strong data-i18n="private">Privé</strong><small data-i18n="no_sharing">Aucun partage automatique</small></article>
+        <article class="stat-card"><div class="stat-icon mood">🧭</div><span data-i18n="profile_type">Profil actif</span><strong id="professionalAudience">—</strong><small data-i18n="from_profile">Selon votre profil</small></article>
+      </div>
+      <article class="panel"><h3 data-i18n="professional_tools">Outils d’accompagnement</h3><p class="muted" data-i18n="professional_tools_desc">Préparez des objectifs d’activité ou de bien-être avec la personne, sans interpréter ces données comme des résultats médicaux.</p><div class="quick-grid"><button class="quick-action" data-go="activity"><span>🏃</span><b data-i18n="activity_plan">Planifier une activité</b></button><button class="quick-action" data-go="nutrition"><span>🥗</span><b data-i18n="nutrition_guide">Voir les repères nutritionnels</b></button><button class="quick-action" data-go="statistics"><span>📊</span><b data-i18n="view_stats">Consulter les statistiques</b></button><button class="quick-action" data-go="profile"><span>👤</span><b data-i18n="edit_profile">Modifier le profil</b></button></div></article>
+    </section>
+
+    <section class="page" id="page-about">
+      <div class="section-heading"><div><h2 data-i18n="about_title">À propos de Healthy Life</h2><p data-i18n="about_subtitle">Une application pour prendre soin de soi, à son rythme.</p></div></div>
+      <article class="panel about-hero">
+        <div class="about-mark">✚</div>
+        <div><span class="pill about-pill" data-i18n="about_badge">SANTÉ • HABITUDES • BIEN-ÊTRE</span><h2>HEALTHY LIFE</h2>
+        <p data-i18n="about_intro">Healthy Life est une application de suivi personnel conçue pour vous aider à mieux comprendre vos habitudes quotidiennes et à prendre soin de votre bien-être.</p></div>
+      </article>
+      <div class="about-grid">
+        <article class="panel"><div class="about-icon">🎯</div><h3 data-i18n="about_mission_title">Notre mission</h3><p data-i18n="about_mission_text">Encourager chacun à adopter progressivement des habitudes positives grâce à un suivi simple, accessible et encourageant.</p></article>
+        <article class="panel"><div class="about-icon">👥</div><h3 data-i18n="about_audience_title">Pour qui ?</h3><p data-i18n="about_audience_text">Étudiants, grand public, sportifs et professionnels : chacun peut utiliser Healthy Life pour suivre ses habitudes à son rythme.</p></article>
+        <article class="panel"><div class="about-icon">🌿</div><h3 data-i18n="about_values_title">Nos priorités</h3><p data-i18n="about_values_text">Simplicité, prévention, autonomie et respect de la vie privée. Vos objectifs restent personnels et adaptés à votre quotidien.</p></article>
+      </div>
+      <article class="panel"><h3 data-i18n="about_features_title">Ce que vous pouvez suivre</h3>
+        <ul class="about-list">
+          <li data-i18n="about_feature_water">💧 Votre hydratation et vos objectifs d’eau.</li>
+          <li data-i18n="about_feature_activity">🏃 Vos activités physiques et séances de sport.</li>
+          <li data-i18n="about_feature_nutrition">🥗 Vos repas et quelques repères de nutrition.</li>
+          <li data-i18n="about_feature_sleep">🌙 Votre durée de sommeil et vos habitudes de repos.</li>
+          <li data-i18n="about_feature_mood">🧘 Votre humeur, vos rappels et vos tendances personnelles.</li>
+        </ul>
+      </article>
+      <div class="disclaimer" data-i18n="about_disclaimer">Important : Healthy Life fournit des informations générales et des outils de suivi. L’application ne pose aucun diagnostic et ne remplace pas l’avis d’un médecin ou d’un autre professionnel de santé.</div>
+    </section>
+
+    <div class="modal-backdrop" id="accountModal" aria-hidden="true">
+      <div class="account-modal panel" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+        <button class="modal-close" id="closeAccount" aria-label="Close">×</button>
+        <h2 id="accountTitle" data-i18n="account_title">Compte et synchronisation</h2>
+        <p class="muted" data-i18n="account_desc">Connectez-vous au serveur de votre installation pour synchroniser vos données.</p>
+        <div class="account-tabs"><button class="active" data-auth-tab="login" data-i18n="login">Connexion</button><button data-auth-tab="register" data-i18n="register">Créer un compte</button></div>
+        <form id="authForm" class="form-grid">
+          <label data-i18n="email">Adresse e-mail<input type="email" id="authEmail" required autocomplete="email"></label>
+          <label data-i18n="password">Mot de passe<input type="password" id="authPassword" required minlength="8" autocomplete="current-password"></label>
+          <button class="btn primary full" id="authSubmit" data-i18n="login">Connexion</button>
+        </form>
+        <div class="account-state" id="accountState" data-i18n="account_local">Mode local : vos données restent sur cet appareil tant que le serveur n’est pas lancé.</div>
+        <button class="btn danger" id="logoutBtn" hidden data-i18n="logout">Déconnexion</button>
+        <p class="hint" data-i18n="account_security">Utilisez un mot de passe unique. Le serveur de démonstration chiffre les mots de passe avec un hachage sécurisé.</p>
+      </div>
+    </div>
+
+    <footer class="footer">HEALTHY LIFE <span>•</span> <span data-i18n="footer_line">Prenez soin de vous, un jour à la fois.</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
